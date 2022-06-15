@@ -18,7 +18,7 @@ A new fast method for clustering phylogenetic trees using K-means and inferring 
     => =============================================================================================================================
 
 # Installation
-    $ git clone https://github.com/TahiriNadia/KMeansSuperTreeClustering.git
+    $ git clone https://github.com/iambenjaminalbertelli/TestPhylogenetic.git
     $ make
     or
     $ make install
