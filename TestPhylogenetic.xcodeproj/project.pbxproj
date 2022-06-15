@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		408D77FC285A906A007599B2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D77FB285A906A007599B2 /* main.cpp */; };
+		408D7807285A9281007599B2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 408D7806285A9281007599B2 /* Makefile */; };
+		408D780B285A9354007599B2 /* utils_tree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D7809285A9354007599B2 /* utils_tree.cpp */; };
+		408D780E285A93F1007599B2 /* K-means.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D780C285A93F1007599B2 /* K-means.cpp */; };
+		408D7811285A9407007599B2 /* fonctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D780F285A9407007599B2 /* fonctions.cpp */; };
+		408D7814285A9424007599B2 /* hgt_int.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D7812285A9424007599B2 /* hgt_int.cpp */; };
+		408D7817285A9439007599B2 /* Super-trees.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 408D7815285A9439007599B2 /* Super-trees.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,23 @@
 /* Begin PBXFileReference section */
 		408D77F8285A906A007599B2 /* TestPhylogenetic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestPhylogenetic; sourceTree = BUILT_PRODUCTS_DIR; };
 		408D77FB285A906A007599B2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		408D7806285A9281007599B2 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		408D7808285A9309007599B2 /* structures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = structures.h; sourceTree = "<group>"; };
+		408D7809285A9354007599B2 /* utils_tree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = utils_tree.cpp; sourceTree = "<group>"; };
+		408D780A285A9354007599B2 /* utils_tree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = utils_tree.hpp; sourceTree = "<group>"; };
+		408D780C285A93F1007599B2 /* K-means.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "K-means.cpp"; sourceTree = "<group>"; };
+		408D780D285A93F1007599B2 /* K-means.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "K-means.hpp"; sourceTree = "<group>"; };
+		408D780F285A9407007599B2 /* fonctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fonctions.cpp; sourceTree = "<group>"; };
+		408D7810285A9407007599B2 /* fonctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fonctions.hpp; sourceTree = "<group>"; };
+		408D7812285A9424007599B2 /* hgt_int.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hgt_int.cpp; sourceTree = "<group>"; };
+		408D7813285A9424007599B2 /* hgt_int.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = hgt_int.hpp; sourceTree = "<group>"; };
+		408D7815285A9439007599B2 /* Super-trees.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "Super-trees.cpp"; sourceTree = "<group>"; };
+		408D7816285A9439007599B2 /* Super-trees.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "Super-trees.hpp"; sourceTree = "<group>"; };
+		408D7818285A95D8007599B2 /* all_trees_woese.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = all_trees_woese.txt; sourceTree = "<group>"; };
+		408D7819285A9600007599B2 /* Covid-19_trees.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Covid-19_trees.txt"; sourceTree = "<group>"; };
+		408D781B285A96D9007599B2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		408D781C285A9744007599B2 /* output.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = output.txt; sourceTree = "<group>"; };
+		408D781D285A9757007599B2 /* stat.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = stat.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +64,10 @@
 		408D77EF285A906A007599B2 = {
 			isa = PBXGroup;
 			children = (
-				408D77FA285A906A007599B2 /* TestPhylogenetic */,
+				408D781B285A96D9007599B2 /* README.md */,
+				408D7804285A9179007599B2 /* output */,
+				408D7803285A916C007599B2 /* data */,
+				408D77FA285A906A007599B2 /* src */,
 				408D77F9285A906A007599B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +80,42 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		408D77FA285A906A007599B2 /* TestPhylogenetic */ = {
+		408D77FA285A906A007599B2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				408D780C285A93F1007599B2 /* K-means.cpp */,
+				408D780D285A93F1007599B2 /* K-means.hpp */,
+				408D7809285A9354007599B2 /* utils_tree.cpp */,
+				408D780A285A9354007599B2 /* utils_tree.hpp */,
 				408D77FB285A906A007599B2 /* main.cpp */,
+				408D7806285A9281007599B2 /* Makefile */,
+				408D7808285A9309007599B2 /* structures.h */,
+				408D780F285A9407007599B2 /* fonctions.cpp */,
+				408D7810285A9407007599B2 /* fonctions.hpp */,
+				408D7812285A9424007599B2 /* hgt_int.cpp */,
+				408D7813285A9424007599B2 /* hgt_int.hpp */,
+				408D7815285A9439007599B2 /* Super-trees.cpp */,
+				408D7816285A9439007599B2 /* Super-trees.hpp */,
 			);
-			path = TestPhylogenetic;
+			path = src;
+			sourceTree = "<group>";
+		};
+		408D7803285A916C007599B2 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				408D7818285A95D8007599B2 /* all_trees_woese.txt */,
+				408D7819285A9600007599B2 /* Covid-19_trees.txt */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		408D7804285A9179007599B2 /* output */ = {
+			isa = PBXGroup;
+			children = (
+				408D781C285A9744007599B2 /* output.txt */,
+				408D781D285A9757007599B2 /* stat.csv */,
+			);
+			path = output;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408D7811285A9407007599B2 /* fonctions.cpp in Sources */,
+				408D7814285A9424007599B2 /* hgt_int.cpp in Sources */,
+				408D780E285A93F1007599B2 /* K-means.cpp in Sources */,
+				408D7807285A9281007599B2 /* Makefile in Sources */,
+				408D780B285A9354007599B2 /* utils_tree.cpp in Sources */,
 				408D77FC285A906A007599B2 /* main.cpp in Sources */,
+				408D7817285A9439007599B2 /* Super-trees.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YCKVXG23Z;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/Cellar/boost/1.78.0_1/include;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -251,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2YCKVXG23Z;
 				ENABLE_HARDENED_RUNTIME = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = /usr/local/Cellar/boost/1.78.0_1/include;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
