@@ -49,6 +49,7 @@ void validation(int &intParam);
 void validationAlpha(double &alpha);
 void validationKmin(int intParam, int &kmin);
 void presenterProgramme(void);
+void Initialisation(int, char **);
 
 //===================================================================================
 //===================================================================================
@@ -64,6 +65,11 @@ int main(int nargs, char ** argv) {
     int n;
     char champs[100];
     char contenu[100];
+    
+    printf("nargs : %d", nargs);
+    for (int i = 0; i < nargs; i ++){
+        printf(argv[i]);
+    }
 
     if(nargs < 2){
         printf("\nbad input..\nusage:%s {-simulation|-matrice|-tree}\n",argv[0]);
@@ -332,3 +338,8 @@ void presenterProgramme(){
    printf("Nadia Tahiri and Vladimir Makarenkov - Departement d'informatique - Universite du Quebec a Montreal\n");
 }
 
+void Initialisation(int nargs, char ** argv){
+    if(nargs != 7){
+        
+    }
+}
