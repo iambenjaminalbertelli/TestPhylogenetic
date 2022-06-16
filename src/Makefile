@@ -1,5 +1,5 @@
 all: main.cpp
-	g++ main.cpp -openmp -g -o KMSTC
+	g++ main.cpp fonctions.cpp hgt_int.cpp K-means.cpp Super-trees.cpp utils_tree.cpp -openmp -g -o KMSTC
 	chmod -R 777 * .
 	@echo '=> ============================================================================================================================='
 	@echo '=> Program   : KMeansSuperTreeClustering - 2021'
@@ -32,7 +32,7 @@ all: main.cpp
 	@echo '===> ./KMSTC -tree ../data/Covid-19_trees.txt 1 0.2 3 8'
 	
 install: main.cpp
-	g++ main.cpp -openmp -g -o KMSTC
+	g++ main.cpp fonctions.cpp hgt_int.cpp K-means.cpp Super-trees.cpp utils_tree.cpp -openmp -g -o KMSTC
 	chmod -R 777 * .
 	
 help:
