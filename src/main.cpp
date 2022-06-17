@@ -65,16 +65,19 @@ int main(int nargs, char ** argv) {
     int n;
     char champs[100];
     char contenu[100];
+
+    Initialisation(nargs, argv);
     
-    printf("nargs : %d", nargs);
+    printf("nargs : %d\n", nargs);
     for (int i = 0; i < nargs; i ++){
         printf(argv[i]);
+        printf("\n");
     }
 
-    if(nargs < 2){
+    /*if(nargs < 2){
         printf("\nbad input..\nusage:%s {-simulation|-matrice|-tree}\n",argv[0]);
         exit(1);
-    }
+    }*/
     
     if(ExtraireDonneesLC(argv[1],champs,contenu)==1){
         if(strcmp("tree",champs) == 0){
@@ -339,7 +342,41 @@ void presenterProgramme(){
 }
 
 void Initialisation(int nargs, char ** argv){
+    int choice = 0;
     if(nargs != 7){
-        
+        if(nargs < 1){
+            printf("Sorry but you have to choose a program to execute. Here are the possibilities :\n1) KMPTC\nPlease write the number of your choice :\n");
+            scanf("%d", &choice);
+            if (choice == 1){
+                argv[0] = "./KMPTC";
+            }
+        }
+        else{
+            printf("\nSorry but apparently we can't understand what you want to execute.\nFirst, choose the type of data you want to work with :\n1) tree\n2) simulation\n3) matrix\nPlease write the number of your choice :\n");
+            scanf("%d", &choice);
+            if (choice == 1){
+                argv[1] = "-tree";
+                printf("\nNow choose your .txt file containing the data.\n");
+                printf("Please write the path directory from the src folder.\n");
+                scanf("%s", argv[2]);
+            }
+            printf("\nPlease choose the cluster_validity_index used in K-means :\n1) Calinski-Harabasz\n2) Ball-Hall\n");
+            scanf("%d", argv[3]);
+            printf("\nα is the penalty parameter for species overlap in phylogenetic trees.\n");
+            printf("It must be between 0 and 1 :\n");
+            scanf("%f", argv[4]);
+            printf("\nLast step ! You have to choose the number of cluster minimum and maximum.\n");
+            if(argv[3] == "1"){
+                printf("You chose Calisnki-Harabasz, so Kmin has to be >= 2\n");
+            }
+            if(argv[3] == "2"){
+                printf("You chose Ball-Hall, so Kmin has to be >= 1\n");
+            }
+            printf("Kmin : ");
+            scanf("%d", argv[5]);
+            printf("Kmax : ");
+            scanf("%d", argv[6]);
+            printf("\n\n\n");
+        }
     }
 }

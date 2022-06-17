@@ -31,7 +31,7 @@ A new fast method for clustering phylogenetic trees using K-means and inferring 
 
 # Examples
     Please execute the following command line:
-    => For trees: ./KMSTC -tree input_file cluster_validity_index α Kmin Kmax
+    => For trees: ./KMPTC -tree input_file cluster_validity_index α Kmin Kmax
 
     => input_file: the input file for the program
     => cluster_validity_index: the cluster validity index used in K-means (1 for Calinski-Harabasz and 2 for Ball-Hall)
@@ -44,9 +44,9 @@ A new fast method for clustering phylogenetic trees using K-means and inferring 
 
     Command line execution examples:
          1) input_file = data/Covid-19_trees.txt, cluster_validity_index = CH, α = 0.1, Kmin = 3, Kmax = 8):
-        ./KMSTC -tree ../data/Covid-19_trees.txt 1 0.1 3 8
+        ./KMPTC -tree ../data/Covid-19_trees.txt 1 0.1 3 8
          2) input_file = data/all_trees_woese.txt, cluster_validity_index = CH, α = 1, Kmin = 2, Kmax = 10):
-        ./KMSTC -tree ../data/all_trees_woese.txt 1 1 2 10
+        ./KMPTC -tree ../data/all_trees_woese.txt 1 1 2 10
 
 # Input
     => The input data sets are located in the folder "data"
