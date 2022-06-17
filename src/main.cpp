@@ -66,10 +66,14 @@ int main(int nargs, char ** argv) {
     char champs[100];
     char contenu[100];
 
+    char rep[256];
+    getcwd(rep, 256);
+    printf(rep);
+    
     Initialisation(nargs, argv);
     
     printf("nargs : %d\n", nargs);
-    for (int i = 0; i < nargs; i ++){
+    for (int i = 0; i < 7; i ++){
         printf(argv[i]);
         printf("\n");
     }
@@ -361,21 +365,21 @@ void Initialisation(int nargs, char ** argv){
                 scanf("%s", argv[2]);
             }
             printf("\nPlease choose the cluster_validity_index used in K-means :\n1) Calinski-Harabasz\n2) Ball-Hall\n");
-            scanf("%d", argv[3]);
+            scanf("%s", argv[3]);
             printf("\nα is the penalty parameter for species overlap in phylogenetic trees.\n");
             printf("It must be between 0 and 1 :\n");
-            scanf("%f", argv[4]);
+            scanf("%s", argv[4]);
             printf("\nLast step ! You have to choose the number of cluster minimum and maximum.\n");
-            if(argv[3] == "1"){
+            if(strcmp(argv[3], "1") == 0){
                 printf("You chose Calisnki-Harabasz, so Kmin has to be >= 2\n");
             }
-            if(argv[3] == "2"){
+            if(strcmp(argv[3], "2") == 0){
                 printf("You chose Ball-Hall, so Kmin has to be >= 1\n");
             }
             printf("Kmin : ");
-            scanf("%d", argv[5]);
+            scanf("%s", argv[5]);
             printf("Kmax : ");
-            scanf("%d", argv[6]);
+            scanf("%s", argv[6]);
             printf("\n\n\n");
         }
     }
