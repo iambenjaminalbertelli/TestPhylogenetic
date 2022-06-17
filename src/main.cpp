@@ -49,7 +49,7 @@ void validation(int &intParam);
 void validationAlpha(double &alpha);
 void validationKmin(int intParam, int &kmin);
 void presenterProgramme(void);
-void Initialisation(int, char **);
+int Initialisation(int, char **);
 
 //===================================================================================
 //===================================================================================
@@ -70,7 +70,8 @@ int main(int nargs, char ** argv) {
     getcwd(rep, 256);
     printf(rep);
     
-    Initialisation(nargs, argv);
+    int futurNargs = nargs;
+    nargs = Initialisation(futurNargs, argv);
     
     printf("nargs : %d\n", nargs);
     for (int i = 0; i < 7; i ++){
@@ -345,7 +346,7 @@ void presenterProgramme(){
    printf("Nadia Tahiri and Vladimir Makarenkov - Departement d'informatique - Universite du Quebec a Montreal\n");
 }
 
-void Initialisation(int nargs, char ** argv){
+int Initialisation(int nargs, char ** argv){
     int choice = 0;
     if(nargs != 7){
         if(nargs < 1){
@@ -383,4 +384,6 @@ void Initialisation(int nargs, char ** argv){
             printf("\n\n\n");
         }
     }
+    nargs = 7;
+    return nargs;
 }
