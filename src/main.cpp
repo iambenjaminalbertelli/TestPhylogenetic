@@ -357,6 +357,7 @@ void Initialisation(int nargs, char ** argv){
                 printf("Please write the path directory from the src folder.\n");
                 printf("Note that your actual directory path is :\n");
                 printf(rep);
+                printf("\n");
                 scanf("%s", argv[2]);
             }
             printf("\nPlease choose the cluster_validity_index used in K-means :\n1) Calinski-Harabasz\n2) Ball-Hall\n");
