@@ -266,10 +266,6 @@ int main(int nargs, char ** argv) {
 
     }
     printf("END OF PROGRAM!\n");
- 
-
-    printf("%f \n", epsilon_ba);
-    cout << "Hello, World!\n";
     return 0;
 }
 
