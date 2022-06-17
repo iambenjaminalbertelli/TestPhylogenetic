@@ -619,10 +619,10 @@ int Tree_edges (double **DI, long int *ARETE, double *LONGUEUR, int n,int binair
                 for (j=1;j<=2*n-3-kt;j++){
 
                     if(j!=i){
-                        if((ARETE[2*j-2] == SomToDel)){/*&&(ARETE[2*j-1] != ARETE[2*i-1])){*/
+                        if(ARETE[2*j-2] == SomToDel){/*&&(ARETE[2*j-1] != ARETE[2*i-1])){*/
                             ARETE[2*j-2] = OtherSom;
                         }
-                        else if((ARETE[2*j-1] == SomToDel)){/*/&&(ARETE[2*j-2] != ARETE[2*i-1])){*/
+                        else if(ARETE[2*j-1] == SomToDel){/*/&&(ARETE[2*j-2] != ARETE[2*i-1])){*/
                             ARETE[2*j-1] = OtherSom;
                         }
                     }
@@ -2039,11 +2039,11 @@ int lectureNewick_old(string newick, long int * ARETE, double * LONGUEUR, char *
         for(i=1;i<=2*n-3;i++){
             if((ARETE[2*i-1] != root_existance) && (noeud_interne == ARETE[2*i-2])){
                 LONGUEUR[i-1] = 50;
-                printf("\n[%d,%d]",noeud_interne,ARETE[2*i-1]);
+                printf("\n[%d,%ld]",noeud_interne,ARETE[2*i-1]);
             }
             if((ARETE[2*i-2] != root_existance) && (noeud_interne == ARETE[2*i-1])){
                 LONGUEUR[i-1] = 50;
-                printf("\n[%d,%d]",noeud_interne,ARETE[2*i-2]);
+                printf("\n[%d,%ld]",noeud_interne,ARETE[2*i-2]);
             }
         }
         

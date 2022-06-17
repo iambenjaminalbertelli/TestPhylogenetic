@@ -408,7 +408,7 @@ int main_kmeans(char **argv,vector <string> monTableau, double ** mat, double **
                     printf ("Iteration = %d",nit);
                     printf ("SSEref = %lf",SSEref);
                     for (i=1;i<=n;i++){
-                        printf ("%lf  ",list[i]);
+                        printf ("%d",list[i]);
                     }
                 }
                 nnit=nit;
