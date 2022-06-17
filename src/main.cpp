@@ -49,7 +49,7 @@ void validation(int &intParam);
 void validationAlpha(double &alpha);
 void validationKmin(int intParam, int &kmin);
 void presenterProgramme(void);
-int Initialisation(int, char **);
+void Initialisation(int, char **);
 
 //===================================================================================
 //===================================================================================
@@ -65,20 +65,10 @@ int main(int nargs, char ** argv) {
     int n;
     char champs[100];
     char contenu[100];
-
-    char rep[256];
-    getcwd(rep, 256);
-    printf(rep);
     
-    int futurNargs = nargs;
-    nargs = Initialisation(futurNargs, argv);
+    Initialisation(nargs, argv);
+    nargs = 7;
     
-    printf("nargs : %d\n", nargs);
-    for (int i = 0; i < 7; i ++){
-        printf(argv[i]);
-        printf("\n");
-    }
-
     /*if(nargs < 2){
         printf("\nbad input..\nusage:%s {-simulation|-matrice|-tree}\n",argv[0]);
         exit(1);
@@ -346,7 +336,7 @@ void presenterProgramme(){
    printf("Nadia Tahiri and Vladimir Makarenkov - Departement d'informatique - Universite du Quebec a Montreal\n");
 }
 
-int Initialisation(int nargs, char ** argv){
+void Initialisation(int nargs, char ** argv){
     int choice = 0;
     if(nargs != 7){
         if(nargs < 1){
@@ -360,9 +350,13 @@ int Initialisation(int nargs, char ** argv){
             printf("\nSorry but apparently we can't understand what you want to execute.\nFirst, choose the type of data you want to work with :\n1) tree\n2) simulation\n3) matrix\nPlease write the number of your choice :\n");
             scanf("%d", &choice);
             if (choice == 1){
+                char rep[256];
+                getcwd(rep, 256);
                 argv[1] = "-tree";
                 printf("\nNow choose your .txt file containing the data.\n");
                 printf("Please write the path directory from the src folder.\n");
+                printf("Note that your actual directory path is :\n");
+                printf(rep);
                 scanf("%s", argv[2]);
             }
             printf("\nPlease choose the cluster_validity_index used in K-means :\n1) Calinski-Harabasz\n2) Ball-Hall\n");
@@ -384,6 +378,4 @@ int Initialisation(int nargs, char ** argv){
             printf("\n\n\n");
         }
     }
-    nargs = 7;
-    return nargs;
 }
