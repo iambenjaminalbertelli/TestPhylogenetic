@@ -13,14 +13,6 @@ extern int rand_bootstrap;
 
 int compteur=0;
 
-void traiterSignal(int sig){
-    printf("\nMESSAGE : SEGMENTATION FAULT #%d DETECTED",sig);
-    printf("\nUse valgrind or gdb to fix the problem");
-    printf("\n");
-    exit(-1);
-}
-
-
 //========================================================================================================
 //============================================ MAIN ======================================================
 //========================================================================================================
@@ -31,13 +23,9 @@ void main_hgt(string tree1, string tree2, double *distances){
     struct InputTree GeneTree;                        //== initial gene tree
     struct InputTree SpeciesTreeReduce;                    //== initial species tree reduit
     struct InputTree GeneTreeReduce;                        //== initial gene tree reduit
-    struct InputTree SpeciesTreeRed;              //== reduced species tree
-    struct InputTree GeneTreeRed;                    //== reduced gene tree
-    int cpt_hgt,i,j,nb_same_espece, nb_leaves, nbTree=0;
+    int i,j,nb_same_espece, nb_leaves;
     int min_diff = 0; // difference minimum of species between T1 and nb_same_espece or between T2 and nb_same_espece
-    int bootstrap = 0;
-    int multigene = 0;
-    int nbHgtFound = 0;
+    
     struct CRITERIA aCrit;                               //== struture of all the criteria
     struct Parameters param;
 

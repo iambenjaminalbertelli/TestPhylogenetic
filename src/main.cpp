@@ -58,11 +58,6 @@ void Initialisation(int, char **);
 int main(int nargs, char ** argv) {
     
     // Déclaration et initialisation de variables
-    double MaxLong=0;
-    double MinLong = INFINI;
-    double seuil;
-    double epsilona = 0.00005;
-    int n;
     char champs[100];
     char contenu[100];
     
@@ -77,8 +72,8 @@ int main(int nargs, char ** argv) {
     if(ExtraireDonneesLC(argv[1],champs,contenu)==1){
         if(strcmp("tree",champs) == 0){
             fstream fichier(argv[2]);
-            int intParam;
-            double alpha;
+            int intParam = 0;
+            double alpha = 0.0;
             int kmin=0;
             int kmax=0;
             if(nargs==3){
@@ -136,14 +131,14 @@ int main(int nargs, char ** argv) {
                 while( !fichier.eof()){
                     mesTrees.push_back("");//creation d'une ligne vide
                     getline(fichier, mesTrees.back());//lecture d'une ligne du fichier
-                    ligne = mesTrees.size() - 1;//je recupere la taille du tableau (-1 pour la ligne 0)
+                    ligne = int (mesTrees.size() - 1);//je recupere la taille du tableau (-1 pour la ligne 0)
 
                     if(mesTrees[ligne].empty())//si la ligne est vide
                         mesTrees.pop_back();//on la retire du tableau
                 }
-                tabIndices.push_back(mesTrees.size());
+                tabIndices.push_back(int (mesTrees.size()));
                 if (kmax>mesTrees.size()-1||kmax<1){
-                    kmax=mesTrees.size()-1;
+                    kmax = int (mesTrees.size()-1);
                 }
                 main_consense(cl2,tabIndices,mesTrees,intParam,alpha,kmin,kmax);
 
@@ -158,7 +153,6 @@ int main(int nargs, char ** argv) {
             }
             fstream fichier(argv[2]);
             int intParam = atoi(argv[3]);
-            int alpha = atof(argv[4]);
             int kmin = atoi(argv[5]);
             int kmax = atoi(argv[6]);
             validation(intParam);
@@ -275,7 +269,6 @@ int main(int nargs, char ** argv) {
 
 int ExtraireDonneesLC(const char * chaine, char *champs, char * contenu){
 
-    int cpt=0;
     int tailleChaine;
 
     if(chaine[0] != '-'){
@@ -352,7 +345,7 @@ void Initialisation(int nargs, char ** argv){
                 printf("\nNow choose your .txt file containing the data.\n");
                 printf("Please write the path directory from the src folder.\n");
                 printf("Note that your actual directory path is :\n");
-                printf(rep);
+                printf("%s", rep);
                 printf("\n");
                 scanf("%s", argv[2]);
             }
@@ -372,7 +365,7 @@ void Initialisation(int nargs, char ** argv){
             scanf("%s", argv[5]);
             printf("Kmax : ");
             scanf("%s", argv[6]);
-            printf("\n\n\n");
+            printf("\n\n");
         }
     }
 }

@@ -16,7 +16,6 @@ using namespace std;
 
 #include "structures.h"
 
-void traiterSignal(int);
 void main_hgt(string, string, double *);
 
 #define binaireSpecies 0

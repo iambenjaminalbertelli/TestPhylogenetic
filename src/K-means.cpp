@@ -110,17 +110,16 @@ int main_kmeans(char **argv,vector <string> monTableau, double ** mat, double **
         // Start timer
         tbegin2=time(NULL);                // get the current calendar time
 
-    int N = monTableau.size(); //quantity of initial tree
+    int N = int (monTableau.size()); //quantity of initial tree
     int i=0, j=0;        //Counters
     int n=N, p=N;        //,pmax,kmax; //      Integer p,pmax,kmax
-    int ntran=0, itemp=0, iseed=0, niter=0, kk=0, nit=0;        //added declarations for variables
-    int nnit=0, k=0, i1ref=0, i2ref=0, igr1=0, igr2=0;        //added declarations for variables
+    int ntran=0, iseed=0, niter=0, kk=0, nit=0;        //added declarations for variables
+    int nnit=0, k=0, i1ref=0, i2ref=0;        //added declarations for variables
     int idebug=0 ; // 0, no debug, 1 debug
     int k1=0, k2=0;  //added declarations for variables
     int hard_max_k=0; //--Setting the max k1
 
         int random_number=100; //--Fixed random number
-    int istand=0;   //--0 No standardization
     int iassign=2;  // 1 equal, 2 random
         int iran=100;   //--Number of random position
         int nran=100;  //--Number of Random start VM
@@ -207,7 +206,6 @@ int main_kmeans(char **argv,vector <string> monTableau, double ** mat, double **
     }
 
     double D1=0,Dref=0,SSE=0,SSEref=0,SST=0;
-        double temp=0;
 
     int **listr;                    //listr(kmax,nmax),
     listr = new int*[kmax+1];
@@ -352,7 +350,6 @@ int main_kmeans(char **argv,vector <string> monTableau, double ** mat, double **
     }
 
     int number_cluster = 0;
-    int k_cluster = 0;
 
     int nbInit =0;
     int nbFin =0;
@@ -370,9 +367,6 @@ int main_kmeans(char **argv,vector <string> monTableau, double ** mat, double **
     }
 
     int *nk = new int [kmax+1];
-    int bon_partition_initiale = 0;
-    int nb_partition_OK = 0;
-    int max_possibility_parti_init = 0;
 
     //initialisation des variables
     for(int k=1;k<=kmax; k++){
@@ -502,7 +496,6 @@ m60:
         nbInit =0;
         nbFin =0;
 
-        double diff = 0.0;
 
         for(int i=0;i<tabIndices.size();i++){
             nbFin+=tabIndices.at(i);
@@ -677,11 +670,9 @@ m60:
 void ReadData1(int &n,int &nmax,int &p,int &pmax,double** mat/* ,double* coord */,int* ishort,double* weight,double* colsum,int &ntran, char* nameb, int N)
 {
     int p1=0,p2=0;
-    double rowsum=0,tsum=0;
 
-    int i=0, j=0, nlines=0;
+    int j=0;
     int   nmat=2; // (orientation of data))
-    int iflag=0;//iflag=0
 
     //Read matrix parameters
     n = N;
@@ -754,7 +745,7 @@ void ReadData1(int &n,int &nmax,int &p,int &pmax,double** mat/* ,double* coord *
 void Assign(int &iran,int &n,int &nmax,int &k1,int &kmax,int* list,int* howmany,int* no,int &idebug,int &iassign,int &iseed, int random_number)
 
 {
-    int k=0, i=0, ii=0, itemp=0, kk=0, how=0, isum=0;
+    int k=0, i=0, ii=0, kk=0, how=0, isum=0;
     char namea[255];
     double turn=0;
 
@@ -811,7 +802,7 @@ void Assign(int &iran,int &n,int &nmax,int &k1,int &kmax,int* list,int* howmany,
 
         for (k=1;k<=k1;k++){
             for (i=1;i<=howmany[k];i++){
-                fscanf(Input3, "%d", no[i]);
+                fscanf(Input3, "%d", &no[i]);
             }
             for (i=1;i<=howmany[k];i++){
                 list[no[i]]=k;
@@ -1039,8 +1030,6 @@ void outStat(int Strouve[],int Sref[],char *criteria,int N,char *N_especes,char 
     diff = fabs(diff);
     const int const_K_real = atoi(K_real);
     const int const_group = group;
-    int kmin=1;
-    int kmax=10;
 
     double max_k = max(const_K_real,const_group);
     double diff_norm = (diff*1.0)/(max_k*1.0);
@@ -1117,7 +1106,7 @@ double FO_super_tree(int &n,int &kmax,double** mat,double* Dvec,int* list,int* h
     int *nk_CH = new int [kmax+1];
     int cluster_k=0;
     double RF = 0.0;
-    double Dref=0,D1=0;        //Real*8 Dref,D1,SSE,Dvec(kmax),weight(pmax)
+    double Dref=0;     //Real*8 Dref,D1,SSE,Dvec(kmax),weight(pmax)
     int    kref=0;        //Integer list(nmax),howmany(kmax),kref
     //Integer ishort(pmax)
     // Compute squared distances to group centroids. Assign objects to nearest one
@@ -1130,7 +1119,6 @@ double FO_super_tree(int &n,int &kmax,double** mat,double* Dvec,int* list,int* h
     int nb_cluster_source = 0;
     double FO_old = 0.0;
     double FO_new = 0.0;
-    double tmp_calc = 0.0;
     double tmp_calc_dest = 0.0;
     double tmp_calc_source = 0.0;
 
@@ -1276,7 +1264,6 @@ double DistanceCH(int &n,int &kmax,double** mat,int* list,double** Ww,double FO_
     double dist_all = 0.0;
     double RF;
     double distance_total = 0.0;
-    int cluster_k=0;
     int *nk_CH = new int [kmax+1];
     int k_cluster = 0;
 
@@ -1334,7 +1321,7 @@ double FO_W(int &n,int &kmax,double** mat,double* Dvec,int* list,int* howmany,do
     int *nk_W = new int [kmax+1];
     int cluster_k=0;
     double RF = 0.0;
-    double Dref=0,D1=0;        //Real*8 Dref,D1,SSE,Dvec(kmax),weight(pmax)
+    double Dref=0;       //Real*8 Dref,D1,SSE,Dvec(kmax),weight(pmax)
     int    kref=0;        //Integer list(nmax),howmany(kmax),kref
     //Integer ishort(pmax)
     // Compute squared distances to group centroids. Assign objects to nearest one
@@ -1347,7 +1334,6 @@ double FO_W(int &n,int &kmax,double** mat,double* Dvec,int* list,int* howmany,do
     int nb_cluster_source = 0;
     double FO_old = 0.0;
     double FO_new = 0.0;
-    double tmp_calc = 0.0;
     double tmp_calc_dest = 0.0;
     double tmp_calc_source = 0.0;
 
@@ -1488,10 +1474,8 @@ double FO_W(int &n,int &kmax,double** mat,double* Dvec,int* list,int* howmany,do
 
 double DistanceW(int &n,int &kmax,double** mat, int* list, double** Ww, double FO_new, double facteur) {
 
-    double dist_intragroupe = 0.0;
 
     double distance_total = 100000000.0;
-    int cluster_k=0;
     double *clusterK_same = new double [kmax+1];
     int *nk_W = new int [kmax+1];
     int k_cluster = 0;

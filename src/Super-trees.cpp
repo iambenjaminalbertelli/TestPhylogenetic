@@ -51,10 +51,6 @@ int main_consense(char **argv, vector<int> tabIndices, vector <string> mesTrees,
         n_identique[lineDist]= new double[mesTrees.size()];
     }
     
-    double MoinsUn = -1.0;
-    double PlusUn = 1.0;
-    double Tirage1 = 0.0;
-    double Tirage2 = 0.0;
     
     // Remplissage de la matrice des distances RF en faisant appel à main_hgt
     // qui calcule la distance RF entre chaque paire d'arbre
